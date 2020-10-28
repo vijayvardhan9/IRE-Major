@@ -1,0 +1,40 @@
+==========================
+!pip install googletrans
+from googletrans import Translator
+translator = Translator()
+data = ['स्टार वॉर्स','तमिलनाडु' , 'महाराष्ट्र'  ,'त्रिवेंद्रम' , 'सलेम' , 'त्रिची' , 'कोयंबटूर',  'पांडिचेरी']
+for place in data:
+    text = translator.translate(place, src='hi', dest='en')
+    print(text.text, end='  ')
+
+============================
+
+load petscan data and store id : title pair in json file
+========================================
+path = '/content/data/'
+import json
+films_data = dict()
+with open(path + "films_10.json") as fp :
+  films_data = json.load(fp)
+films_data1 = films_data['*'][0]['a']['*']
+films_titles = dict()
+for f in films_data1 :
+  id = f['id']
+  title = f['title']
+  films_titles[id] = title 
+with open(path + "films_titles.json", 'w', encoding="utf-8") as fp :
+	json.dump(films_titles, fp)    
+
+===========================================
+load petscan json and json from the dump...
+then intersect both to get titles with no infoboxes in film domain
+===========================================
+with open(path + "films_titles.json") as fp :
+  temp1 = json.load(fp)
+with open(path + "result.json") as fp :
+  temp2 = json.load(fp)
+values_a = set(temp1.values())
+values_b = set(temp2.values())
+intersection = values_a & values_b
+print(intersection)
+===========================================
