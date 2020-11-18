@@ -1,5 +1,6 @@
 import sys
 import networkx as nx
+from googletrans import Translator
 from operator import itemgetter 
 from SPARQLWrapper import SPARQLWrapper, JSON 
 
@@ -41,6 +42,7 @@ results = get_results(endpoint_url, query)
 # rank_mult = {}
 image = ''
 image_val = ''
+translator = Translator()
 
 for result in results['results']['bindings']:
     p_val = result['wdLabel']['value']
@@ -69,50 +71,65 @@ method = int(sys.argv[2])
 if method == 1:
     i = 0
     print("RANDOM ATTRIBUTE-VALUE SELECTION\n\n")
-    print("{} - {}".format(image, image_val))
+    image = translator.translate(image, src='en', dest='hi')
+    print("{} - {}".format(image.text, image_val))
     for result in results['results']['bindings']:
         i += 1
         if i == 25:
             break
         else:
-            print("{} - {}".format(result['wdLabel']['value'], result['ooLabel']['value']))      
+            wdLabel = translator.translate(result['wdLabel']['value'], src='en', dest='hi')
+            ooLabel = translator.translate(result['ooLabel']['value'], src='en', dest='hi')
+            print("{} - {}".format(wdLabel.text, ooLabel.text))      
 elif method == 2:
     i = 0
     print("RANKx ATTRIBUTE-VALUE SELECTION\n\n")
-    print("{} - {}".format(image, image_val))
+    image = translator.translate(image, src='en', dest='hi')
+    print("{} - {}".format(image.text, image_val))
     for result in sorted_rank_mult:
         i += 1
         if i == 25:
             break
         else:
-            print("{} - {}".format(result['wdLabel']['value'], result['ooLabel']['value']))
+            wdLabel = translator.translate(result['wdLabel']['value'], src='en', dest='hi')
+            ooLabel = translator.translate(result['ooLabel']['value'], src='en', dest='hi')
+            print("{} - {}".format(wdLabel.text, ooLabel.text))  
 elif method == 3:
     i = 0
     print("RANK+ ATTRIBUTE-VALUE SELECTION\n\n")
-    print("{} - {}".format(image, image_val))
+    image = translator.translate(image, src='en', dest='hi')
+    print("{} - {}".format(image.text, image_val))
     for result in sorted_rank_plus:
         i += 1
         if i == 25:
             break
         else:
-            print("{} - {}".format(result['wdLabel']['value'], result['ooLabel']['value']))
+            wdLabel = translator.translate(result['wdLabel']['value'], src='en', dest='hi')
+            ooLabel = translator.translate(result['ooLabel']['value'], src='en', dest='hi')
+            print("{} - {}".format(wdLabel.text, ooLabel.text))  
 elif method == 4:
     i = 0
     print("PAGERANK ATTRIBUTE-VALUE SELECTION\n\n")
-    print("{} - {}".format(image, image_val))
+    image = translator.translate(image, src='en', dest='hi')
+    print("{} - {}".format(image.text, image_val))
     for result in sorted_pgrnk:
         i += 1
         if i == 25:
             break
         else:
-            print("{} - {}".format(result['wdLabel']['value'], result['ooLabel']['value']))
+            wdLabel = translator.translate(result['wdLabel']['value'], src='en', dest='hi')
+            ooLabel = translator.translate(result['ooLabel']['value'], src='en', dest='hi')
+            print("{} - {}".format(wdLabel.text, ooLabel.text))  
 elif method == 5:
     i = 0
     print("FREQUENCY ATTRIBUTE-VALUE SELECTION\n\n")
-    print("{} - {}".format(image, image_val)) 
+    image = translator.translate(image, src='en', dest='hi')
+    print("{} - {}".format(image.text, image_val)) 
     for result in sorted_freq:
         i += 1
         if i == 25:
             break
         else:
-            print("{} - {}".format(result['wdLabel']['value'], result['ooLabel']['value']))    
+            wdLabel = translator.translate(result['wdLabel']['value'], src='en', dest='hi')
+            ooLabel = translator.translate(result['ooLabel']['value'], src='en', dest='hi')
+            print("{} - {}".format(wdLabel.text, ooLabel.text))  
