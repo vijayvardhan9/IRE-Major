@@ -60,18 +60,29 @@ def extractInfobox(title):
         country = df["Country"]
         IMDbid = df["imdbID"]
         boxoffice = df["BoxOffice"]
-        print("Title: ", title)
+        print("नाम: ", translator.translate(title, dest="hi").text)
         print("Poster: ", poster)
-        print("Director: ", director)
-        print("Production: ", production)
-        print("Writer: ", writer)
-        print("Cast: ", actors)
-        print("Genre: ", genre)
-        print("Runtime: ", runtime)
-        print("Release date: ", released_date)
-        print("Language: ", language)
-        print("Country: ", country)
-        print("IMDb id: ", IMDbid)
+        print("निर्देशक: ", translator.translate(director, dest="hi").text)
+        try:
+            print("स्टूडियो: ", translator.translate(production, dest="hi").text)
+        except:
+            pass
+        print("लेखक: ", translator.translate(writer, dest="hi").text)
+        all_actors = ""
+        for actor in actors:
+            all_actors += translator.translate(actor, dest="hi").text + ", "
+        all_actors = all_actors[:-2]
+        print("अभिनेता: ", all_actors)
+        all_genres = ""
+        for gen in genre:
+            all_genres += translator.translate(gen, dest="hi").text + ", "
+        all_genres = all_genres[:-2]
+        print("शैली: ", all_genres)
+        print("समय सीमा: ", runtime.split(" ")[0] + " " + "मिनट")
+        print("प्रदर्शन तिथि: ", translator.translate(released_date, dest="hi").text)
+        print("भाषा: ", translator.translate(language, dest="hi").text)
+        print("देश: ", translator.translate(country, dest="hi").text)
+        print("आईएम्डीबी आईडी: ", IMDbid)
         if(boxoffice != "N/A"):
             print("Box Office: ", boxoffice)
         # print(title, released_date, runtime, genre, director, writer, actors, production, poster)
@@ -87,7 +98,7 @@ def find(movie):
     if length == 1:
         for i in range(len(movie[0])):
             title = movie[0][i].lower()
-            # print(title)
+            print(title)
             if extractInfobox(title):
                 return
         print("The movie does not exist probably")
