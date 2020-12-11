@@ -22355,6 +22355,7 @@ mindi	मिंडी
 pattebaaji	पत्तेबाजी
 bebhaav	बेभाव
 jokar	जोकर
+joker	जोकर
 sattebaaji	सट्टेबाजी
 abdul	अब्दुल
 andhaa	अन्धा
@@ -25631,7 +25632,7 @@ pachtaayegi	पछतायेगी
 mehko	महको
 mahako	महको
 nadeeyaa	नदीया
-lagaana	लगान
+lagaan	लगान
 pachtaana	पच्तान
 jalaana	जलान
 daraayegi	डराएगी

@@ -1,0 +1,25 @@
+नाम              name
+चित्र              image
+पूरा नाम           full_name
+उपनाम            nickname
+जन्म दिन          birth_date
+जन्म स्थान         birth_place
+मौत की तिथि       death_date
+मृत्यु का स्थान       death_place
+बल्लेबाजी की शैली     batting
+गेंदबाजी की शैली      bowling
+भूमिका            role
+रिश्ता             family
+देश              country
+अंतरराष्ट्रीय अवध      internationalspan
+टेस्ट में पदार्पण       testdebutdate
+टेस्ट में पदार्पण       testdebutyear
+अंतिम टेस्ट          lasttestdate
+अंतिम टेस्ट          lasttestyear
+वनडे पदार्पण         odidebutdate
+वनडे पदार्पण         odidebutyear
+अंतिम वनडे          lastodidate
+अंतिम वनडे          lastodiyear
+टी20ई पदार्पण        T20Idebutdate
+टी20ई पदार्पण        T20Idebutyear
+अंतिम टी20ई         lastT20Idate

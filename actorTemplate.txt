@@ -1,0 +1,20 @@
+name            नाम
+image           चित्र
+birth_name      जन्म नाम
+other_names     अन्य नाम
+birth_date      जन्म दिन
+birth_place     जन्म स्थान
+death_date      मौत की तिथि
+death_place     मृत्यु का स्थान
+nationality     राष्ट्रीयता
+education       शिक्षा      
+occupation      व्यवसाय
+alma_mater      शिक्षा प्राप्त की
+years_active    सक्रिय वर्ष
+height          ऊंचाई       
+known_for       प्रसिद्धि कारण
+spouse          जीवनसाथी
+awards          पुरस्कार
+children        बच्चे
+parents         माता-पिता
+relatives       संबंधी
